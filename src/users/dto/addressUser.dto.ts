@@ -1,11 +1,9 @@
 import { IsNotEmpty } from 'class-validator';
 
 export class CreateAdressUser {
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'Jalan tidak boleh kosong' })
   jalan: string;
 
-  @IsNotEmpty()
-  noRumah: number;
-
-  kota?: string;
+  @IsNotEmpty({ message: 'Nomor Rumah tidak boleh kosong' })
+  no: number;
 }

@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { Person } from 'src/users/services/users/users.service';
+import { Person } from 'src/types/cusmomerType';
 
 export const fungsiReturnError = (data: Person[]) => {
   if (data.length > 0) return data;

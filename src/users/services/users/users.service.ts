@@ -1,10 +1,5 @@
 import { Injectable } from '@nestjs/common';
-
-export type Person = {
-  id: number;
-  name: string;
-  age: number;
-};
+import { Person } from 'src/types/cusmomerType';
 
 @Injectable()
 export class UsersService {
