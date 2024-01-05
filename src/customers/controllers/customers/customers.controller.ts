@@ -4,6 +4,7 @@ import {
   Get,
   Inject,
   Param,
+  ParseIntPipe,
   UseInterceptors,
 } from '@nestjs/common';
 import { CustomersService } from 'src/customers/services/customers/customers.service';
@@ -22,9 +23,16 @@ export class CustomersController {
   }
 
   @UseInterceptors(ClassSerializerInterceptor)
-  @Get(':name')
+  @Get('name/:name')
   getDataByname(@Param('name') name: string) {
     console.log(name);
     return this.customerService.getCustomerByName(name);
+  }
+
+  @UseInterceptors(ClassSerializerInterceptor)
+  @Get('id/:id')
+  getDataById(@Param('id', ParseIntPipe) id: number) {
+    console.log(id);
+    return this.customerService.getCustomerById(id);
   }
 }

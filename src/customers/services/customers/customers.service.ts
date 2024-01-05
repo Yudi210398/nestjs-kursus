@@ -1,12 +1,13 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { fungsiDataAdaAtauTidakAda } from 'src/function/fungsiUmum';
 import { ExcludePass } from 'src/types/cusmomerType';
 
 @Injectable()
 export class CustomersService {
   private customers: ExcludePass[] = [
-    { name: 'Hana', password: 123456 },
-    { name: 'Rico', password: 'KaryaGuna', hobby: 'Futsal' },
-    { name: 'Sasa', password: 'KaryaGuna' },
+    { id: 1, name: 'Hana', password: 123456 },
+    { id: 2, name: 'Rico', password: 'KaryaGuna', hobby: 'Futsal' },
+    { id: 3, name: 'Sasa', password: 'KaryaGuna' },
   ];
 
   getAllCustomers() {
@@ -17,9 +18,13 @@ export class CustomersService {
     const data = this.customers.filter(
       (data) => data.name.toLowerCase() === name.toLowerCase(),
     );
-    console.log(data);
-    if (data.length > 0) return new ExcludePass(data[0]);
 
-    return new HttpException('data tidak ada', HttpStatus.BAD_REQUEST);
+    return fungsiDataAdaAtauTidakAda(data);
+  }
+
+  getCustomerById(id: number) {
+    const data = this.customers.filter((data) => data.id === id);
+
+    return fungsiDataAdaAtauTidakAda(data);
   }
 }

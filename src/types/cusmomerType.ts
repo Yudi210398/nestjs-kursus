@@ -12,6 +12,7 @@ export interface CustomerDataLogin {
 }
 
 export class ExcludePass {
+  id: number;
   name: string;
   hobby?: string;
 
