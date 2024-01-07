@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { ErrorCustomeMessage } from 'src/error/errorCustomeMessage';
 import { fungsiDataAdaAtauTidakAda } from 'src/function/fungsiUmum';
 import { ExcludePass } from 'src/types/cusmomerType';
 
@@ -25,6 +26,7 @@ export class CustomersService {
   getCustomerById(id: number) {
     const data = this.customers.filter((data) => data.id === id);
 
-    return fungsiDataAdaAtauTidakAda(data);
+    if (data.length > 0) return new ExcludePass(data[0]);
+    return new ErrorCustomeMessage('Data ID tidak ditemukan', 401);
   }
 }
