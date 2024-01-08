@@ -15,6 +15,7 @@ export class Animal4legsController {
   @Post('create')
   @UsePipes(ValidationPipe)
   createAnimal4legs(@Body() animal: CreateDTOAnima4Legs) {
+    console.log(animal.jenisBinatang, animal.namaBinatangs);
     return this.animal4legsServices.createAnimal4Legs(animal);
   }
 }

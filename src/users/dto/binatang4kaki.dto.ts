@@ -1,9 +1,10 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateDTOAnima4Legs {
   @IsNotEmpty({ message: 'Nama Binatang tidak boleh kosong' })
-  namaBinatang: string;
+  namaBinatangs: string;
 
   @IsNotEmpty({ message: 'Jenis Binatang tidak boleh kosong' })
-  jenisBinatang: number;
+  @IsString({ message: 'data harus berupa text' })
+  jenisBinatang: string;
 }

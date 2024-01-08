@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema()
-export class Binatang4Legss {
+export class Animals4Legss {
   @Prop({ required: true })
   namaBinatangs: string;
 
@@ -9,4 +9,4 @@ export class Binatang4Legss {
   jenisBinatang: string;
 }
 
-export const Binatang4LegssShema = SchemaFactory.createForClass(Binatang4Legss);
+export const Animal4LegssShema = SchemaFactory.createForClass(Animals4Legss);

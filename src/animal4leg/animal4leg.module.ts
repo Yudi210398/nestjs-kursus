@@ -6,6 +6,7 @@ import {
   Binatang4Legss,
   Binatang4LegssShema,
 } from 'src/model/binatangKaki4.shemas';
+import { Animals4Legss, Animal4LegssShema } from 'src/model/AnimalData';
 
 @Module({
   controllers: [Animal4legsController],
@@ -13,6 +14,7 @@ import {
   imports: [
     MongooseModule.forFeature([
       { name: Binatang4Legss.name, schema: Binatang4LegssShema },
+      { name: Animals4Legss.name, schema: Animal4LegssShema },
     ]),
   ],
 })

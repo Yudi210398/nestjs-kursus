@@ -10,7 +10,7 @@ import { Animal4legModule } from './animal4leg/animal4leg.module';
     UsersModule,
     CustomersModule,
     MongooseModule.forRoot(
-      'mongodb+srv://runatyudi:kawasanrokok1998@cluster0.oaqmd.mongodb.net/nestLearnMongo?retryWrites=true&w=majority',
+      'mongodb://runatyudi:kawasanrokok1998@cluster0-shard-00-00.oaqmd.mongodb.net:27017,cluster0-shard-00-01.oaqmd.mongodb.net:27017,cluster0-shard-00-02.oaqmd.mongodb.net:27017/nestLearnMongo?ssl=true&replicaSet=atlas-myi90d-shard-0&authSource=admin&retryWrites=true&w=majority',
     ),
     Animal4legModule,
   ],
