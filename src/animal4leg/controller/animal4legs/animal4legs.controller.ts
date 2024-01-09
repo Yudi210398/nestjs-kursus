@@ -1,6 +1,8 @@
 import {
   Body,
   Controller,
+  Get,
+  Param,
   Post,
   UsePipes,
   ValidationPipe,
@@ -15,7 +17,12 @@ export class Animal4legsController {
   @Post('create')
   @UsePipes(ValidationPipe)
   createAnimal4legs(@Body() animal: CreateDTOAnima4Legs) {
-    console.log(animal.jenisBinatang, animal.namaBinatangs);
     return this.animal4legsServices.createAnimal4Legs(animal);
+  }
+
+  @Get(`id/:id`)
+  getDataAnimalById(@Param() ids: any): object {
+    const { id } = ids;
+    return this.animal4legsServices.getDataAnimal(id);
   }
 }

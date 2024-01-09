@@ -17,12 +17,12 @@ export class Animal4legsService {
     dataDto: CreateDTOAnima4Legs,
   ): Promise<Animals4Legss> {
     const hasil = await this.binatang4Legs.findOne({
-      jenisBinatang: dataDto.jenisBinatang.toLowerCase().replace(/\s/g, ''),
+      namaBinatangs: dataDto.namaBinatangs.toLowerCase().replace(/\s/g, ''),
     });
 
     if (hasil)
       throw await new ErrorCustomeMessage(
-        'Data Sudah Terpakai',
+        `Data ${dataDto.namaBinatangs} Sudah Terpakai`,
         HttpStatus.BAD_REQUEST,
       );
     // const data = await new this.binatang4Legs(dataDto); //! Simple code
@@ -32,5 +32,16 @@ export class Animal4legsService {
       jenisBinatang: dataDto.jenisBinatang.toLowerCase().replace(/\s/g, ''),
     });
     return await data.save();
+  }
+
+  async getDataAnimal(data: string): Promise<Animals4Legss | null> {
+    try {
+      return await this.binatang4Legs.findById(data);
+    } catch (err) {
+      throw await new ErrorCustomeMessage(
+        `Data Tidak Ada`,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 }
