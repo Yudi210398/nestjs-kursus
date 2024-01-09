@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
-import { Animal4legsService } from 'src/animal4leg/services/animal4legs/animal4legs.service';
+import { Animals4Legss } from './AnimalData';
 
 @Schema()
 export class PersonAnimal {
-  @Prop({ type: mongoose.Schema.ObjectId, ref: 'Animal4legsService' })
-  binantangKesukaan: Animal4legsService;
+  @Prop({ type: mongoose.Schema.ObjectId, ref: 'Animals4Legss' })
+  binantangKesukaan: Animals4Legss;
 
   @Prop({ required: true })
   nama: string;
