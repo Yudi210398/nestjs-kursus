@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Patch,
   Post,
@@ -28,6 +29,12 @@ export class PeoplesController {
 
   @Patch('data')
   patchData(@Body() { id }, @Body() person: CreatePersonAnimalPatch) {
+    console.log(id, `ler`);
     return this.personAnimalService.patchDataPerson(id, person);
+  }
+
+  @Delete('hapus')
+  async DeleteDataPerson(@Body() { id }) {
+    return await this.personAnimalService.hapusDataPerson(id);
   }
 }
