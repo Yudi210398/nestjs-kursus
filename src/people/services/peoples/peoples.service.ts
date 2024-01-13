@@ -25,6 +25,7 @@ export class PeoplesService {
   }
 
   async getDataAll(): Promise<PersonAnimal[]> {
+    console.log(process.env.USERNAMEDATA, process.env.PASSWORD_DATABASE);
     return await this.personAnimal.find().populate('binantangKesukaan');
   }
 
@@ -34,7 +35,6 @@ export class PeoplesService {
   ): Promise<PersonAnimal[]> {
     const valid = mongoose.Types.ObjectId.isValid(id);
     const data = await this.personAnimal.find({ _id: id }).exec();
-    console.log(data, `cak`);
 
     if (data.length === 0 || !valid)
       throw new ErrorCustomeMessage('data tidak', 401);
